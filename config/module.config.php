@@ -23,4 +23,10 @@ return array(
             ),
         )
     ),
+    'blocksDefinition' => array(
+        'multiCarrousel' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/") . '/multiCarrousel.json'
+        )
+    ),
 );

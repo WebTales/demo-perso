@@ -1,0 +1,37 @@
+<!--<div id="{{'block'+block.id}}" class="owl-carousel" ng-controller="CarouselController as carouselCtrl">-->
+    <!--<div ng-repeat="content in carouselCtrl.contents track by $index" ng-if="content.fields[blockConfig.imageField]">-->
+        <!--<a ng-href="{{content.detailPageUrl}}" >-->
+            <!--<img ng-if="!isArray(content.fields[blockConfig.imageField])" class="lazyOwl" data-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField],carouselCtrl.getImageOptions())}}"-->
+                 <!--alt="{{content.fields.text}}"-->
+                 <!--title="{{content.fields.text}}">-->
+            <!--<img ng-if="isArray(content.fields[blockConfig.imageField])" class="lazyOwl" data-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField][0],carouselCtrl.getImageOptions())}}"-->
+                 <!--alt="{{content.fields.text}}"-->
+                 <!--title="{{content.fields.text}}">-->
+            <!--<div ng-if="blockConfig.showCaption" class="rubedo-caption">-->
+                <!--<h3>{{content.fields.text}}</h3>-->
+                <!--<p ng-if="blockConfig.showSummary">{{content.fields.summary}}</p>-->
+            <!--</div>-->
+        <!--</a>-->
+    <!--</div>-->
+<!--</div>-->
+<section ng-controller="MultiCarrouselController as carouselCtrl">
+    <h2>{{block.title}}</h2>
+    <div id="{{'block'+block.id}}" class="owl-demo">
+
+        <div class="item" ng-repeat="content in carouselCtrl.contents track by $index">
+            <a ng-href="{{content.detailPageUrl}}">
+                <img ng-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField],carouselCtrl.getImageOptions())}}" alt="Owl Image">
+                <h4>{{content.fields.text}}</h4>
+            </a>
+            <a href="artist.html">
+                <h5>Michael Jackson</h5>
+            </a>
+        </div>
+
+
+    </div>
+    <div class="btn-group pull-right">
+        <a href="#" class="btn btn-default">All latest releases</a>
+    </div>
+    <div class="clearfix"></div>
+</section>

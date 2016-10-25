@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
-#owl-demo .item{
+.owl-demo .item{
   margin: 3px;
 }
-#owl-demo .item img{
+.owl-demo .item img{
   display: block;
   width: 100%;
   height: auto;
