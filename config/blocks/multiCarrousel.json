@@ -25,6 +25,13 @@
                                 "name": "singlePage"
                             }
                         },
+                      {
+                        "type": "Ext.ux.TreePicker",
+                        "config": {
+                          "fieldLabel": "Latest releases page",
+                          "name": "latestReleasesPage"
+                        }
+                      },
                         {
                             "type": "Ext.form.field.Text",
                             "config": {

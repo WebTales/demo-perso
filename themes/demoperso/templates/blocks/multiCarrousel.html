@@ -30,8 +30,8 @@
 
 
     </div>
-    <div class="btn-group pull-right">
-        <a href="#" class="btn btn-default">All latest releases</a>
+    <div class="btn-group pull-right" ng-if="carouselCtrl.latestReleasesPageUrl">
+        <a ng-href="{{carouselCtrl.latestReleasesPageUrl}}" class="btn btn-default">All latest releases</a>
     </div>
     <div class="clearfix"></div>
 </section>

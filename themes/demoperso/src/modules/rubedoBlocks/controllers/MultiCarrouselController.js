@@ -1,4 +1,4 @@
-angular.module("rubedoBlocks").lazy.controller("MultiCarrouselController",["$scope","RubedoContentsService",function($scope,RubedoContentsService){
+angular.module("rubedoBlocks").lazy.controller("MultiCarrouselController",["$scope","RubedoContentsService","RubedoPagesService",function($scope,RubedoContentsService,RubedoPagesService){
     var me=this;
     me.contents=[];
     var blockConfig=$scope.blockConfig;
@@ -45,5 +45,12 @@ angular.module("rubedoBlocks").lazy.controller("MultiCarrouselController",["$sco
     };
     if (blockConfig.query){
         me.getContents();
+    }
+    if (blockConfig&&blockConfig.latestReleasesPage&&mongoIdRegex.test(blockConfig.latestReleasesPage)){
+        RubedoPagesService.getPageById(blockConfig.latestReleasesPage).then(function(response){
+            if (response.data.success){
+                me.latestReleasesPageUrl=response.data.url;
+            }
+        });
     }
 }]);
