@@ -5,6 +5,7 @@
              ng-class="rubedo.componentsService.resolveResponsiveClass(row.responsive)" class="row"></div>
     </div>
 </header>
+<div class="compensator"></div>
 <section ng-repeat="row in rubedo.current.page.rows track by $index" ng-if="row.code!='header'&&row.code!='footer'" ng-class="row.code">
     <div class="container">
         <div class="row"

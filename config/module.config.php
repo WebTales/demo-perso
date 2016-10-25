@@ -12,6 +12,7 @@ return array(
                     "/css/prettyPhoto.css",
                     "/css/animate.css",
                     "/css/main.css",
+                    "/css/integration.css",
                     "https://fonts.googleapis.com/css?family=Raleway"
                 ),
                 'js' => array(

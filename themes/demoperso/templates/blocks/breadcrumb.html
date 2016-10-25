@@ -1,0 +1,15 @@
+<div class="row" ng-controller="BreadcrumbController as breadcrumbCtrl">
+    <div class="col-sm-6">
+        <h1 ng-repeat="page in rubedo.current.breadcrumb" ng-if="$last">{{page.title}}</h1>
+    </div>
+    <div class="col-sm-6">
+        <ul class="breadcrumb pull-right" vocab="http://schema.org/" typeof="BreadcrumbList">
+            <li property="itemListElement" typeof="ListItem" ng-class="{'active': !page.url}" ng-repeat="page in rubedo.current.breadcrumb track by $index">
+                <a ng-if="page.url" ng-href="{{page.url}}" property="item" typeof="WebPage"><span property="name">{{page.title}}</span></a>
+                <span ng-if="!page.url">{{page.title}}</span>
+                <meta property="position" ng-attr-content="{{$index+1}}">
+            </li>
+        </ul>
+    </div>
+
+</div>
