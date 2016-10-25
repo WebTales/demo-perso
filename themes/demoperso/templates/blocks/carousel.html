@@ -1,0 +1,28 @@
+<div id="main-slider" ng-controller="CarouselController as carouselCtrl">
+    <div class="carousel slide wet-asphalt">
+        <ol class="carousel-indicators">
+            <li ng-repeat="content in carouselCtrl.contents track by $index" ng-class="{'active':$first}" data-target="#main-slider" showtab data-slide-to="{{$index}}"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div ng-repeat="content in carouselCtrl.contents track by $index" ng-class="{'active':$first}" class="item" ng-style="{'background-image': 'url('+rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField],carouselCtrl.getImageOptions())+')'}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-content centered">
+                                <h2 class="animation animated-item-1">{{content.fields.text}}</h2>
+                                <p class="animation animated-item-2">{{content.fields.summary}}</p>
+                                <a class="btn btn-md animation animated-item-3" ng-href="{{content.detailPageUrl}}">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.carousel-inner-->
+    </div><!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" showtab data-slide="prev">
+        <i class="icon-angle-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" showtab data-slide="next">
+        <i class="icon-angle-right"></i>
+    </a>
+</div>

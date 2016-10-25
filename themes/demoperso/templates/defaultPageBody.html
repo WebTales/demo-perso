@@ -7,12 +7,12 @@
 </header>
 <div class="compensator"></div>
 <section ng-repeat="row in rubedo.current.page.rows track by $index" ng-if="row.code!='header'&&row.code!='footer'" ng-class="row.code">
-    <div class="container" ng-if="row.code!='no-margin'">
+    <div class="container" ng-if="row.code!='rubedo-demo-full-width'">
         <div class="row"
              ng-class="rubedo.componentsService.resolveResponsiveClass(row.responsive)"
              ng-include="rubedo.componentsService.getRowTemplate(row.customTemplate)"></div>
     </div>
-    <div class="row" ng-if="row.code=='no-margin'"
+    <div class="row" ng-if="row.code=='rubedo-demo-full-width'"
          ng-class="rubedo.componentsService.resolveResponsiveClass(row.responsive)"
          ng-include="rubedo.componentsService.getRowTemplate(row.customTemplate)"></div>
 </section>

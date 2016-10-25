@@ -17,7 +17,8 @@ return array(
                 ),
                 'js' => array(
                     "/js/bootstrap.min.js",
-                    "/js/jquery.prettyPhoto.js"
+                    "/js/jquery.prettyPhoto.js",
+                    "/js/blockDefinitions.js",
                 )
             ),
         )
