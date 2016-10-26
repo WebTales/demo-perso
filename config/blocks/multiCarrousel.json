@@ -28,6 +28,13 @@
                       {
                         "type": "Ext.ux.TreePicker",
                         "config": {
+                          "fieldLabel": "Author page",
+                          "name": "authorPage"
+                        }
+                      },
+                      {
+                        "type": "Ext.ux.TreePicker",
+                        "config": {
                           "fieldLabel": "Latest releases page",
                           "name": "latestReleasesPage"
                         }

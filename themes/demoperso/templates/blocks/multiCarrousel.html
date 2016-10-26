@@ -23,9 +23,9 @@
                 <img ng-src="{{rubedo.imageUrl.getUrlByMediaId(content.fields[blockConfig.imageField],carouselCtrl.getImageOptions())}}" alt="Owl Image">
                 <h4>{{content.fields.text}}</h4>
             </a>
-            <a href="artist.html">
-                <h5>Michael Jackson</h5>
-            </a>
+
+                <h5 ng-repeat="artist in content.fields.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}">Michael Jackson</a></h5>
+
         </div>
 
 
