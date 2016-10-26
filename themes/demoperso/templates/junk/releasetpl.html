@@ -1,0 +1,67 @@
+<div class="col-md-4">
+    <section style="margin-top:20px" class="clearfix">
+        <img ng-src="{{rubedo.imageUrl.getUrlByMediaId(fieldEntity.images[0])}}" class="img-responsive">
+    </section>
+    <section style="margin-top:20px" class="clearfix">
+        <div class="col-xs-4" ng-repeat="image in fieldEntity.images track by $index" ng-if="!$first">
+            <img ng-src="{{rubedo.imageUrl.getUrlByMediaId(image)}}" class="img-responsive">
+        </div>
+    </section>
+    <section style="margin-top:20px" class="clearfix">
+        <ul class="arrow">
+            <li>Genre: <a href="#" class="badge">Electronic</a> <a href="#" class="badge">Hip hop</a> <a href="##" class="badge">Rock</a></li>
+            <li>Style: <a href="#" class="badge">RnB/Swing</a> <a href="#" class="badge">Disco</a> <a href="" class="badge">Pop rap</a></li>
+            <li>Year: {{fieldEntity.year}}</li>
+        </ul>
+    </section>
+</div>
+<div class="col-md-8">
+    <section>
+        <h2>{{fieldEntity.text}}</h2>
+        <h4 ng-repeat="artist in fieldEntity.artists"><a perso-content-link page="581077c73291e289008b45a6" content="{{artist}}">Michael Jackson</a></h4>
+    </section>
+    <section style="margin-top:20px" class="clearfix">
+        <table class="table table-striped">
+            <tr ng-repeat="tracklist in fieldEntity.tracklist">
+                <td class="center"><span class="badge">{{$index+1}}</span></td>
+                <td>{{tracklist.title}}</td>
+                <td>{{tracklist.duration}}</td>
+            </tr>
+
+        </table>
+    </section>
+</div>
+
+<div class="col-md-12" ng-if="fieldEntity.videos.length>0">
+    <h3>Videos</h3>
+    <div id="owl-demo-video">
+
+        <div class="item" ng-repeat="video in fieldEntity.videos">
+            <div class="vid">
+                <iframe width="560" height="315" src="{{video.url.replace('watch?v=', 'v/')}}" allowfullscreen=""></iframe>
+            </div><!--./vid -->
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+
+    setTimeout(function(){
+        $("#owl-demo-video").owlCarousel({
+
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+            items : 2,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3]
+
+        });
+
+    }, 3000);
+
+
+
+</script>

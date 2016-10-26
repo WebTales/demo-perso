@@ -11,6 +11,11 @@ blocksConfig.multiCarrousel={
     "internalDependencies":["/src/modules/rubedoBlocks/controllers/MultiCarrouselController.js"],
     "externalDependencies":['/components/OwlFonk/OwlCarousel/owl-carousel/owl.carousel.min.js']
 };
+blocksConfig.contentDetail= {
+    "template": "/templates/blocks/contentDetail.html",
+        "internalDependencies":["/src/modules/rubedoBlocks/controllers/ContentDetailController.js","/src/modules/rubedoBlocks/directives/DisqusDirective.js"],
+    "externalDependencies":['/components/OwlFonk/OwlCarousel/owl-carousel/owl.carousel.min.js']
+};
 angular.module("rubedoBlocks").directive('persoContentLink',["RubedoContentsService","RubedoPagesService",function (RubedoContentsService,RubedoPagesService) {
     return {
         link: function (scope, element, attrs) {
