@@ -43,3 +43,6 @@ angular.module("rubedoBlocks").directive('persoContentLink',["RubedoContentsServ
         }
     };
 }]);
+angular.module('rubedo').config(function($sceProvider) {
+    $sceProvider.enabled(false);
+});
