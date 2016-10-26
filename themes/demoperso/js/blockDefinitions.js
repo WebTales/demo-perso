@@ -34,7 +34,7 @@ angular.module("rubedoBlocks").directive('persoContentLink',["RubedoContentsServ
                                 if (response.data.success){
                                     var cannonical=response.data.content.canonicalUrl;
                                     var cutUrl=cannonical.substring(cannonical.indexOf(response.data.content.id));
-                                    attrs.$set("href",destinationPage+"/"+cutUrl);
+                                    attrs.$set("href",destinationPage+"/"+cutUrl+'?taxonomies={"artists":["'+response.data.content.id+'"]}');
                                     element.html(response.data.content.fields.text);
                                 }
                             }

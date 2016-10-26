@@ -9,8 +9,8 @@
     </section>
     <section style="margin-top:20px" class="clearfix">
         <ul class="arrow">
-            <li>Genre: <a href="#" class="badge">Electronic</a> <a href="#" class="badge">Hip hop</a> <a href="##" class="badge">Rock</a></li>
-            <li>Style: <a href="#" class="badge">RnB/Swing</a> <a href="#" class="badge">Disco</a> <a href="" class="badge">Pop rap</a></li>
+            <li>Genre: <a ng-repeat="term in contentDetailCtrl.content.taxonomy.58008f0b72a0fe19008b658e" class="badge">{{contentDetailCtrl.content.termLabels[term]}}</a></li>
+            <li>Style: <a ng-repeat="term in contentDetailCtrl.content.taxonomy.58008eb072a0fe94148bb6af" class="badge">{{contentDetailCtrl.content.termLabels[term]}}</a></li>
             <li>Year: {{fieldEntity.year}}</li>
         </ul>
     </section>
@@ -38,7 +38,7 @@
 
         <div class="item" ng-repeat="video in fieldEntity.videos">
             <div class="vid">
-                <iframe width="560" height="315" src="{{video.url.replace('watch?v=', 'v/')}}" allowfullscreen=""></iframe>
+                <iframe width="560" height="315" ng-src="{{video.url.replace('watch?v=', 'v/')}}" allowfullscreen=""></iframe>
             </div><!--./vid -->
         </div>
 
@@ -60,7 +60,7 @@
 
         });
 
-    }, 3000);
+    }, 500);
 
 
 
