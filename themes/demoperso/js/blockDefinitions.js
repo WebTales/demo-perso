@@ -23,7 +23,6 @@ angular.module("rubedoBlocks").directive('persoContentLink',["RubedoContentsServ
                         RubedoContentsService.getContentById(contentId, options).then(
                             function(response){
                                 if (response.data.success){
-                                    console.log(response.data);
                                     var cannonical=response.data.content.canonicalUrl;
                                     var cutUrl=cannonical.substring(cannonical.indexOf(response.data.content.id));
                                     attrs.$set("href",destinationPage+"/"+cutUrl);
