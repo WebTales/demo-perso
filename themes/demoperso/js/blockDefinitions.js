@@ -2,6 +2,10 @@ blocksConfig.carrousel={
     "template": "/templates/blocks/carousel.html",
     "internalDependencies":["/src/modules/rubedoBlocks/controllers/CarouselController.js"]
 };
+blocksConfig.releaseList={
+    "template": "/templates/blocks/releaseList.html",
+    "internalDependencies":["/src/modules/rubedoBlocks/controllers/ReleaseListController.js"]
+};
 blocksConfig.multiCarrousel={
     "template": "/templates/blocks/multiCarrousel.html",
     "internalDependencies":["/src/modules/rubedoBlocks/controllers/MultiCarrouselController.js"],

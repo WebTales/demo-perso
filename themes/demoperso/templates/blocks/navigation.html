@@ -1,3 +1,4 @@
+<div ng-controller="MenuController as menuCtrl">
 <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -9,7 +10,7 @@
         <h1><i class="icon-music icon"></i> M<span style="font-variant:small-caps">usic4u</span></h1>
     </a>
 </div>
-<div class="collapse navbar-collapse" ng-controller="MenuController as menuCtrl">
+<div class="collapse navbar-collapse" >
     <ul class="nav navbar-nav navbar-right">
         <li ng-if="blockConfig.displayRootPage" ng-class="{active:rubedo.current.page.id==rubedo.current.site.homePage}"><a ng-href="{{menuCtrl.menu.url}}" >{{menuCtrl.menu.text}}</a></li>
         <li ng-repeat="page in menuCtrl.menu.pages track by $index"
@@ -25,4 +26,5 @@
             </ul>
         </li>
     </ul>
+</div>
 </div>
