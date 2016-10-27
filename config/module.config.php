@@ -31,6 +31,10 @@ return array(
         'releaseList' => array(
             'maxlifeTime' => 60,
             'definitionFile' => realpath(__DIR__ . "/blocks/") . '/releaseList.json'
-        )
+        ),
+        'searchResults' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/")  . '/searchResults.json'
+        ),
     ),
 );
