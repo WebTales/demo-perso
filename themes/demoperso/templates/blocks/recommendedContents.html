@@ -1,16 +1,24 @@
 <div ng-controller="RecommendedContentsController as rccCtrl">
-    <div class="bs-callout" ng-if="rccCtrl.data.length>0">
+    <div class="bs-callout" ng-if="rccCtrl.data.length>0&&!blockConfig.useDetailContent">
         <h4>Here are your personalized recommendations, based on the releases you searched for on Music4U!</h4>
         <!--<p><a href="#">Click here if you want to reset your recommendations</a>.</p>-->
     </div>
 
-    <div class="bs-callout" ng-if="rccCtrl.data.length==0">
+    <div class="bs-callout" ng-if="rccCtrl.data.length==0&&!blockConfig.useDetailContent">
         <h4>We don't have any personalized recommendations for you at this time. Please try again later.</h4>
         <p>Meanwhile, here are some of the most popular releases on Music4U. The more releases you consult, the more accurate your personalized recommendations will be.</p>
     </div>
     <div class="row">
 
-        <div class="col-xs-6 col-md-2 search-result-holder" ng-repeat="datum in rccCtrl.data track by $index">
+        <div ng-if="!blockConfig.useDetailContent" class="col-xs-6 col-md-2 search-result-holder" ng-repeat="datum in rccCtrl.data track by $index">
+            <a ng-href="{{datum.url}}">
+                <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
+                <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                <h4>{{datum.title}}</h4>
+            </a>
+            <h5 ng-repeat="artist in datum.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}"></a></h5>
+        </div>
+        <div ng-if="blockConfig.useDetailContent" class="col-xs-12 search-result-holder" ng-repeat="datum in rccCtrl.data track by $index">
             <a ng-href="{{datum.url}}">
                 <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
                 <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
