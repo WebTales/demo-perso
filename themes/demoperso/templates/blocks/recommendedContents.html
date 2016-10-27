@@ -20,7 +20,7 @@
         </div>
 
     </div>
-    <div class="blog" ng-if="blockConfig.useDetailContent">
+    <div class="blog" ng-if="blockConfig.useDetailContent&&rccCtrl.data.length>0">
         <h2>{{block.title}}</h2>
         <div class="blog-item">
             <div class="blog-content" ng-repeat="datum in rccCtrl.data track by $index">
