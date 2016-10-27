@@ -12,8 +12,8 @@ return array(
                     "/css/prettyPhoto.css",
                     "/css/animate.css",
                     "/css/main.css",
-                    "/css/integration.css",
-                    "https://fonts.googleapis.com/css?family=Raleway"
+                    "/css/integration.css"
+
                 ),
                 'js' => array(
                     "/js/bootstrap.min.js",
