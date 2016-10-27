@@ -36,5 +36,9 @@ return array(
             'maxlifeTime' => 60,
             'definitionFile' => realpath(__DIR__ . "/blocks/")  . '/searchResults.json'
         ),
+        'recommendedContents' => array(
+            'maxlifeTime' => 60,
+            'definitionFile' => realpath(__DIR__ . "/blocks/")  . '/recommendedContents.json'
+        ),
     ),
 );
