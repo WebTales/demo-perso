@@ -48,4 +48,9 @@ return array(
     'namespaces_api' => array(
         'Demoperso',
     ),
+    'service_manager' => array(
+        'invokables' => array(
+            'ElasticContentTypes' => 'Demoperso\\Elastic\\ContentTypes',
+        )
+    ),
 );
