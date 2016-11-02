@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='release'">
         <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} releases</h3>
         <div class="clearfix">
             <ul class="nav navbar-nav navbar-right">
@@ -72,6 +72,55 @@
         <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
                    count="searchResultsCtrl.count"
                    change-page-action="searchResultsCtrl.changePageAction()"></paginator>
+    </div>
+
+    <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='article'">
+        <div class="blog">
+        <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} articles</h3>
+        <div class="clearfix">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href class="dropdown-toggle" data-toggle="dropdown">{{searchResultsCtrl.displayOrderBy}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href ng-click="searchResultsCtrl.changeOrderBy('_score')">{{rubedo.translate("Search.Label.OrderByRelevance", "Order by relevance")}}</a></li>
+                        <li><a href ng-click="searchResultsCtrl.changeOrderBy('lastUpdateTime')">{{rubedo.translate("Search.Label.OrderByDate", "Order by date")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeOrderBy('authorName')" href>{{rubedo.translate("Search.Label.OrderByAuthor", "Order by author")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeOrderBy('text')" href>{{rubedo.translate("Blocks.Search.Label.OrderByTitle", "Order by title")}}</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href class="dropdown-toggle" data-toggle="dropdown">{{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ng-click="searchResultsCtrl.changeLimit(10)" href>10 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeLimit(20)" href>20 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeLimit(50)" href>50 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+
+
+            <div class="blog-item" ng-repeat="datum in searchResultsCtrl.data track by $index">
+                <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
+                <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                <div class="blog-content clearfix">
+                    <a ng-href="{{datum.url}}"><h3>{{datum.title}}</h3></a>
+                    <div class="entry-meta">
+                        <span><i class="icon-calendar"></i> {{datum.date  | date: 'fullDate'}}</span>
+                        <a href="#" class="badge">Electronic</a> <a href="#" class="badge">Hip hop</a>
+                    </div>
+                    <p>{{datum.summary}}</p>
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-default" ng-href="{{datum.url}}">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+        <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
+                   count="searchResultsCtrl.count"
+                   change-page-action="searchResultsCtrl.changePageAction()"></paginator>
+        </div>
     </div>
 </div>
 </div>

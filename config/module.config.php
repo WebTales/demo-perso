@@ -45,4 +45,7 @@ return array(
             'definitionFile' => realpath(__DIR__ . "/blocks/")  . '/recommendedContents.json'
         ),
     ),
+    'namespaces_api' => array(
+        'Demoperso',
+    ),
 );
