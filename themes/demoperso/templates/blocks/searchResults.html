@@ -14,7 +14,7 @@
 											</span>
                             </div>
                         </form>
-                        <div ng-repeat="facet in searchResultsCtrl.facets track by $index" ng-if="facet.terms || facet.ranges">
+                        <div ng-repeat="facet in searchResultsCtrl.facets track by $index" ng-if="facet.terms || facet.ranges" ng-if="searchResultsCtrl.demoDisplayStyle!='artist'">
                             <h4>{{facet.label}}</h4>
                             <ul class="arrow" ng-if="facet['_type']!='date'">
                                 <li ng-if="facet.terms" class="cursor-as-pointer" ng-repeat="term in facet.terms track by $index">
@@ -26,7 +26,6 @@
                             </ul>
                             <datehistogram-facet ng-if="facet['_type']=='date'"></datehistogram-facet>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -67,6 +66,47 @@
                 <h5 ng-repeat="artist in datum.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}"></a></h5>
             </div>
 
+        </div>
+
+        <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
+                   count="searchResultsCtrl.count"
+                   change-page-action="searchResultsCtrl.changePageAction()"></paginator>
+    </div>
+    <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='artist'">
+        <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} artists</h3>
+        <div class="clearfix">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href class="dropdown-toggle" data-toggle="dropdown">{{searchResultsCtrl.displayOrderBy}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href ng-click="searchResultsCtrl.changeOrderBy('_score')">{{rubedo.translate("Search.Label.OrderByRelevance", "Order by relevance")}}</a></li>
+                        <li><a href ng-click="searchResultsCtrl.changeOrderBy('lastUpdateTime')">{{rubedo.translate("Search.Label.OrderByDate", "Order by date")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeOrderBy('authorName')" href>{{rubedo.translate("Search.Label.OrderByAuthor", "Order by author")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeOrderBy('text')" href>{{rubedo.translate("Blocks.Search.Label.OrderByTitle", "Order by title")}}</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href class="dropdown-toggle" data-toggle="dropdown">{{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ng-click="searchResultsCtrl.changeLimit(10)" href>10 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeLimit(20)" href>20 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                        <li><a ng-click="searchResultsCtrl.changeLimit(50)" href>50 {{rubedo.translate("Blocks.Search.Label.ByPage", "by page")}}</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div ng-if="searchResultsCtrl.demoDisplayStyle=='artist'">
+        <div class="row">
+            <div class="col-xs-6 col-md-2 search-result-holder" ng-repeat="datum in searchResultsCtrl.data track by $index">
+                <a ng-href="{{datum.url}}">
+                    <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
+                    <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                    <h4>{{datum.title}}</h4>
+                </a>
+            </div>
         </div>
 
         <paginator start="searchResultsCtrl.start" limit="searchResultsCtrl.limit"
