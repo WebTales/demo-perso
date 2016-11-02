@@ -23,6 +23,7 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
         me.template = themePath+"/templates/blocks/searchResults/"+config.displayMode+".html";
         var predefinedFacets = !config.predefinedFacets?{}:JSON.parse(config.predefinedFacets);
         var facetsId = ['objectType','type','damType','userType','author','userName','lastupdatetime','price','inStock','query'];
+
         var defaultOptions = {
             start: me.start,
             limit: me.limit,
@@ -34,6 +35,9 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
             pageId: $scope.rubedo.current.page.id,
             siteId: $scope.rubedo.current.site.id
         };
+        if(me.demoDisplayStyle=='article'){
+            defaultOptions.includeTerms=true;
+        }
         if (config.singlePage){
             defaultOptions.detailPageId = config.singlePage;
         }

@@ -108,7 +108,8 @@
                     <a ng-href="{{datum.url}}"><h3>{{datum.title}}</h3></a>
                     <div class="entry-meta">
                         <span><i class="icon-calendar"></i> {{datum.date  | date: 'fullDate'}}</span>
-                        <a href="#" class="badge">Electronic</a> <a href="#" class="badge">Hip hop</a>
+                        <a ng-repeat="tag in datum.taxoLabels"><span class="badge">{{tag}}</span> </a>
+
                     </div>
                     <p>{{datum.summary}}</p>
                     <div class="btn-group pull-right">

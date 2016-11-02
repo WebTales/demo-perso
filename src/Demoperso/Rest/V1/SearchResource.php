@@ -357,7 +357,7 @@ class SearchResource extends AbstractResource
                                 foreach($dataValue as $termId){
                                     $foundTerm=$taxoTermsService->findById($termId);
                                     if ($foundTerm){
-                                        $results['data'][$key]["taxoLabels"][$termId]=$foundTerm["text"];
+                                        $results['data'][$key]["taxoLabels"][]=$foundTerm["text"];
                                     }
                                 }
                             }
