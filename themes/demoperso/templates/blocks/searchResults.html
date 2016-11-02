@@ -59,8 +59,8 @@
         <div class="row">
             <div class="col-xs-6 col-md-3 search-result-holder" ng-repeat="datum in searchResultsCtrl.data track by $index">
                 <a ng-href="{{datum.url}}">
-                    <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
-                    <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                    <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{height:200}) }}" alt="">
+                    <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{height:200}) }}" alt="">
                     <h4>{{datum.title}}</h4>
                 </a>
                 <h5 ng-repeat="artist in datum.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}"></a></h5>
@@ -102,8 +102,8 @@
         <div class="row">
             <div class="col-xs-6 col-md-2 search-result-holder" ng-repeat="datum in searchResultsCtrl.data track by $index">
                 <a ng-href="{{datum.url}}">
-                    <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
-                    <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                    <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{height:200}) }}" alt="">
+                    <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{height:200}) }}" alt="">
                     <h4>{{datum.title}}</h4>
                 </a>
             </div>
