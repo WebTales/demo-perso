@@ -15,6 +15,11 @@ blocksConfig.multiCarrousel={
     "internalDependencies":["/src/modules/rubedoBlocks/controllers/MultiCarrouselController.js"],
     "externalDependencies":['/components/OwlFonk/OwlCarousel/owl-carousel/owl.carousel.min.js']
 };
+blocksConfig.rcCarrousel={
+    "template": "/templates/blocks/rcCarrousel.html",
+    "internalDependencies":["/src/modules/rubedoBlocks/controllers/RCCarrouselController.js"],
+    "externalDependencies":['/components/OwlFonk/OwlCarousel/owl-carousel/owl.carousel.min.js']
+};
 
 blocksConfig.contentDetail= {
     "template": "/templates/blocks/contentDetail.html",

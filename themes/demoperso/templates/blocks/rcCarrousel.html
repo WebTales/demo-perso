@@ -1,0 +1,21 @@
+<section ng-controller="RCCarrouselController as carouselCtrl">
+    <h2>{{block.title}}</h2>
+    <div id="{{'block'+block.id}}" class="owl-demo">
+
+        <div class="item" ng-repeat="datum in carouselCtrl.data track by $index">
+            <a ng-href="{{datum.url}}">
+                <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{}) }}" alt="">
+                <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{}) }}" alt="">
+                <h4>{{datum.title}}</h4>
+            </a>
+            <h5 ng-repeat="artist in datum.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}"></a></h5>
+
+        </div>
+
+
+    </div>
+    <div class="btn-group pull-right" ng-if="carouselCtrl.latestReleasesPageUrl">
+        <a ng-href="{{carouselCtrl.latestReleasesPageUrl}}" class="btn btn-default">More recommendations</a>
+    </div>
+    <div class="clearfix"></div>
+</section>
