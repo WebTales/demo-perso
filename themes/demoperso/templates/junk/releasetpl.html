@@ -65,3 +65,19 @@
 
 
 </script>
+
+
+
+            <div class="blog">
+                <div class="blog-item">
+                    <img class="img-responsive img-blog" ng-src="{{rubedo.imageUrl.getUrlByMediaId(fieldEntity.image)}}" width="100%" alt="" />
+                    <div class="blog-content">
+                        <div class="entry-meta">
+                            <span><i class="icon-calendar"></i> {{fieldEntity.date*1000  | date: 'fullDate'}}</span>
+                            <a ng-repeat="term in contentDetailCtrl.content.taxonomy.58008f0b72a0fe19008b658e" class="badge">{{contentDetailCtrl.content.termLabels[term]}}</a> <a ng-repeat="term in contentDetailCtrl.content.taxonomy.58008eb072a0fe94148bb6af" class="badge">{{contentDetailCtrl.content.termLabels[term]}}</a>
+                        </div>
+                        <p class="lead">{{fieldEntity.summary}}</p>
+                        <rubedo-custom-template template="{{fieldEntity.body}}"></rubedo-custom-template>
+                    </div>
+                </div><!--/.blog-item-->
+            </div>

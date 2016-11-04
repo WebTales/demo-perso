@@ -17,12 +17,22 @@
                         <div ng-repeat="facet in searchResultsCtrl.facets track by $index" ng-if="facet.terms || facet.ranges" ng-if="searchResultsCtrl.demoDisplayStyle!='artist'">
                             <h4>{{facet.label}}</h4>
                             <ul class="arrow" ng-if="facet['_type']!='date'">
-                                <li ng-if="facet.terms" class="cursor-as-pointer" ng-repeat="term in facet.terms track by $index">
+                                <li ng-if="facet.terms&&$index<1" class="cursor-as-pointer" ng-repeat="term in facet.terms track by $index">
                                     <a ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.term)">{{term.label}}</a>&nbsp;<span class="badge">{{term.count}}</span>
                                 </li>
                                 <li ng-if="facet.ranges" class="cursor-as-pointer" ng-repeat="term in facet.ranges track by $index">
                                     <a ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.key)">{{term.label}}</a>&nbsp;<span class="badge">{{term.count}}</span>
                                 </li>
+                                <p ng-if="facet.terms.length>1&&!facet.clearBtn">
+                                    <button ng-click="facet.clearBtn=true" class="btn btn-default btn-xs" type="button" data-toggle="collapse" data-target="#collapse{{facet.id}}"  aria-expanded="false" aria-controls="collapse{{facet.id}}">
+                                        Show all
+                                    </button>
+                                </p>
+                                <div ng-if="facet.terms.length>1" class="collapse" id="collapse{{facet.id}}">
+                                    <li class="cursor-as-pointer" ng-repeat="term in facet.terms track by $index">
+                                        <a ng-click="searchResultsCtrl.clickOnFacets(facet.id, term.term)">{{term.label}}</a>&nbsp;<span class="badge">{{term.count}}</span>
+                                    </li>
+                                </div>
                             </ul>
                             <datehistogram-facet ng-if="facet['_type']=='date'"></datehistogram-facet>
                         </div>
