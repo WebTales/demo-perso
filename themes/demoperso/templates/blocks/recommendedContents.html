@@ -4,7 +4,7 @@
         <!--<p><a href="#">Click here if you want to reset your recommendations</a>.</p>-->
     </div>
 
-    <div class="bs-callout" ng-if="rccCtrl.data.length==0&&!blockConfig.useDetailContent">
+    <div class="bs-callout" ng-if="rccCtrl.query&&rccCtrl.data.length==0&&!blockConfig.useDetailContent">
         <h4>We don't have any personalized recommendations for you at this time. Please try again later.</h4>
         <p>Meanwhile, here are some of the most popular releases on Music4U. The more releases you consult, the more accurate your personalized recommendations will be.</p>
     </div>

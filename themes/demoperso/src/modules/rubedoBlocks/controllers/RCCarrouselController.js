@@ -115,7 +115,6 @@ angular.module("rubedoBlocks").lazy.controller("RCCarrouselController",["$scope"
             });
         }
         me.initCarousel=function(){
-            console.log("init");
             $("#block"+$scope.block.id).owlCarousel({
                 autoPlay: 3000, //Set AutoPlay to 3 seconds
                 items : 4,
