@@ -43,11 +43,8 @@
     </div>
     <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='release'">
         <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} releases</h3>
-        <span ng-if="searchResultsCtrl.notRemovableTerms.length>0||searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
-        <span ng-repeat-start="term in searchResultsCtrl.notRemovableTerms track by $index">{{term.operator}}</span><span
-            class="badge" ng-repeat-end>
-                    <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>
-                </span><span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
+        <span ng-if="searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
+        <span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
                 <span class="badge cursor-as-pointer" ng-repeat-end
                       ng-click="searchResultsCtrl.clickOnFacets(term.facetId, term.term)">
                     <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>&nbsp;&times;
@@ -93,11 +90,8 @@
     </div>
     <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='artist'">
         <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} artists</h3>
-        <span ng-if="searchResultsCtrl.notRemovableTerms.length>0||searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
-        <span ng-repeat-start="term in searchResultsCtrl.notRemovableTerms track by $index">{{term.operator}}</span><span
-            class="badge" ng-repeat-end>
-                    <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>
-                </span><span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
+        <span ng-if="searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
+        <span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
                 <span class="badge cursor-as-pointer" ng-repeat-end
                       ng-click="searchResultsCtrl.clickOnFacets(term.facetId, term.term)">
                     <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>&nbsp;&times;
@@ -145,11 +139,8 @@
     <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='article'">
         <div class="blog">
         <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} articles</h3>
-            <span ng-if="searchResultsCtrl.notRemovableTerms.length>0||searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
-            <span ng-repeat-start="term in searchResultsCtrl.notRemovableTerms track by $index">{{term.operator}}</span><span
-                class="badge" ng-repeat-end>
-                    <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>
-                </span><span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
+            <span ng-if="searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
+            <span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
                 <span class="badge cursor-as-pointer" ng-repeat-end
                       ng-click="searchResultsCtrl.clickOnFacets(term.facetId, term.term)">
                     <span ng-if="term['_type']!='date'">{{term.label}}</span><span ng-if="term['_type']=='date'">{{term.label | date: "shortDate"}}</span>&nbsp;&times;
