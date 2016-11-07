@@ -27,9 +27,9 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
             start: me.start,
             limit: me.limit,
             constrainToSite: config.constrainToSite,
-            predefinedFacets: config.displayedFacets,
+            predefinedFacets: config.predefinedFacets,
             displayMode: config.displayMode,
-            displayedFacets: baseConf,
+            displayedFacets: config.displayedFacets,
             orderby: me.orderBy,
             pageId: $scope.rubedo.current.page.id,
             siteId: $scope.rubedo.current.site.id
