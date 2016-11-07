@@ -23,17 +23,11 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
         me.template = themePath+"/templates/blocks/searchResults/"+config.displayMode+".html";
         var predefinedFacets = !config.predefinedFacets?{}:JSON.parse(config.predefinedFacets);
         var facetsId = ['objectType','type','damType','textfl','userType','author','userName','lastupdatetime','price','inStock','query'];
-        var baseConf=config.displayedFacets;
-        if(baseConf&&baseConf!="['all']"){
-            baseConf=JSON.parse(baseConf);
-            baseConf.push({"name":"contentName","operator":"AND"});
-            baseConf=JSON.stringify(baseConf);
-        }
         var defaultOptions = {
             start: me.start,
             limit: me.limit,
             constrainToSite: config.constrainToSite,
-            predefinedFacets: config.predefinedFacets,
+            predefinedFacets: config.displayedFacets,
             displayMode: config.displayMode,
             displayedFacets: baseConf,
             orderby: me.orderBy,
