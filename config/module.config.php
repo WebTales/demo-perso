@@ -48,4 +48,11 @@ return array(
     'namespaces_api' => array(
         'Demoperso',
     ),
+    'service_manager' => array(
+        'invokables' => array(
+            'ElasticDataSearch' => 'Demoperso\\Elastic\\DataSearch',
+            'ElasticDataAggregations' => 'Demoperso\\Elastic\\DataAggregations',
+            'ElasticContentTypes' => 'Demoperso\\Elastic\\ContentTypes',
+        )
+    ),
 );
