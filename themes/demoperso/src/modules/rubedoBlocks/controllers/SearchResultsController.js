@@ -25,7 +25,9 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
         var facetsId = ['objectType','type','damType','textfl','userType','author','userName','lastupdatetime','price','inStock','query'];
         var baseConf=config.displayedFacets;
         if(baseConf&&baseConf!="['all']"){
-            baseConf=baseConf.replace("]",',{"name":"contentName","operator":"AND"}]');
+            baseConf=JSON.parse(baseConf);
+            baseConf.push({"name":"contentName","operator":"AND"});
+            baseConf=JSON.stringify(baseConf);
         }
         var defaultOptions = {
             start: me.start,
