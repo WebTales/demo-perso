@@ -197,12 +197,16 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
 
                         if(facet.id == 'textfl'){
                             me.alphabet = facet;
-                            angular.forEach(me.alphabet.terms, function(term){
-                                if(alphabetTerms[term.label]){
-                                    alphabetTerms[term.label] = term;
-                                }
-                            });
-                            me.alphabet.terms = alphabetTerms;
+                            if(me.alphabet.terms) {
+                                angular.forEach(me.alphabet.terms, function (term) {
+                                    if (alphabetTerms[term.label]) {
+                                        alphabetTerms[term.label] = term;
+                                    }
+                                });
+                                me.alphabet.terms = alphabetTerms;
+                            } else {
+                                me.alphabet=null;
+                            }
                         } else {
                             me.facets.push(facet);
                         }
