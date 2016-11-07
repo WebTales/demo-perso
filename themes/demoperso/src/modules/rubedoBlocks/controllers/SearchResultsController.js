@@ -22,15 +22,18 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
         me.displayOrderBy = $routeParams.orderby?resolveOrderBy[$routeParams.orderby]:$scope.rubedo.translate('Search.Label.OrderByRelevance');
         me.template = themePath+"/templates/blocks/searchResults/"+config.displayMode+".html";
         var predefinedFacets = !config.predefinedFacets?{}:JSON.parse(config.predefinedFacets);
-        var facetsId = ['objectType','type','damType','userType','author','userName','lastupdatetime','price','inStock','query'];
-
+        var facetsId = ['objectType','type','damType','textfl','userType','author','userName','lastupdatetime','price','inStock','query'];
+        var baseConf=config.displayedFacets;
+        if(baseConf&&baseConf!="['all']"){
+            baseConf=baseConf.replace("]",',{"name":"contentName","operator":"AND"}]');
+        }
         var defaultOptions = {
             start: me.start,
             limit: me.limit,
             constrainToSite: config.constrainToSite,
             predefinedFacets: config.predefinedFacets,
             displayMode: config.displayMode,
-            displayedFacets: config.displayedFacets,
+            displayedFacets: baseConf,
             orderby: me.orderBy,
             pageId: $scope.rubedo.current.page.id,
             siteId: $scope.rubedo.current.site.id
@@ -185,10 +188,29 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
         me.searchByQuery = function(options){
             RubedoSearchService.searchByQuery(options).then(function(response){
                 if(response.data.success){
+                    var alphabetTerms = {'A':{label:'A'},'B':{label:'B'},'C':{label:'C'},'D':{label:'D'},'E':{label:'E'},
+                        'F':{label:'F'},'G':{label:'G'},'H':{label:'H'},'I':{label:'I'},'J':{label:'J'},'K':{label:'K'},
+                        'L':{label:'L'},'M':{label:'M'},'N':{label:'N'},'O':{label:'O'},'P':{label:'P'},'Q':{label:'Q'},
+                        'R':{label:'R'},'S':{label:'S'},'T':{label:'T'},'U':{label:'U'},'V':{label:'V'},'W':{label:'W'},
+                        'X':{label:'X'},'Y':{label:'Y'},'Z':{label:'Z'}};
                     me.query = response.data.results.query;
                     me.count = response.data.count;
                     me.data =  response.data.results.data;
-                    me.facets = response.data.results.facets;
+                    me.facets = [];
+                    angular.forEach(response.data.results.facets,function(facet){
+
+                        if(facet.id == 'textfl'){
+                            me.alphabet = facet;
+                            angular.forEach(me.alphabet.terms, function(term){
+                                if(alphabetTerms[term.label]){
+                                    alphabetTerms[term.label] = term;
+                                }
+                            });
+                            me.alphabet.terms = alphabetTerms;
+                        } else {
+                            me.facets.push(facet);
+                        }
+                    });
                     me.notRemovableTerms = [];
                     me.activeTerms = [];
                     var previousFacetId;

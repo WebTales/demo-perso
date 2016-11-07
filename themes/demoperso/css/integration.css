@@ -8,3 +8,8 @@
 .search-result-holder{
     min-height:280px;
 }
+a.letter-dead-link{
+    color:#535454 !important;
+}a.letter-link{
+    color:#45B39D !important;
+}

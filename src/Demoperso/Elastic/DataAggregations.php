@@ -412,7 +412,7 @@ class DataAggregations
                     }
                     break;
                 case 'textfl' :
-                    $temp ['label'] = "textfl";
+                    $temp ['label'] = "First letter";
                     foreach ($temp ['buckets'] as $key => $value) {
                         $temp ['terms'] [$key] ['term'] = $value ['key'];
                         $temp ['terms'] [$key] ['label'] = strtoupper($value ['key']);
