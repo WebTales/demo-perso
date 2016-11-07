@@ -91,12 +91,12 @@
     </div>
     <div class="col-md-9" ng-if="searchResultsCtrl.demoDisplayStyle=='artist'">
         <h3><i class="icon-search icon"></i> {{searchResultsCtrl.count}} artists</h3>
-        <h3 ng-if="searchResultsCtrl.alphabet.terms"><a ng-repeat="letter in searchResultsCtrl.alphabet.terms track by $index" ng-disabled="!letter.term"
+        <h4 ng-if="searchResultsCtrl.alphabet.terms"><a ng-repeat="letter in searchResultsCtrl.alphabet.terms track by $index" ng-disabled="!letter.term"
            ng-click="searchResultsCtrl.clickOnFacets(searchResultsCtrl.alphabet.id, letter.term)"
            class=""
            ng-class="{'letter-link':letter.count,'cursor-as-pointer':letter.count,'letter-dead-link':!letter.count}"
                 >{{letter.label}}<sup class="cfixed-sup">{{letter.count}}</sup>
-        </a></h3>
+        </a></h4>
         <span ng-if="searchResultsCtrl.activeTerms.length>0">{{rubedo.translate('Blocks.Search.Label.SearchCriteria', 'Search criteria')}} : </span>
         <span ng-repeat-start="term in searchResultsCtrl.activeTerms track by $index">{{term.operator}}</span>
             <span class="badge cursor-as-pointer" ng-repeat-end
