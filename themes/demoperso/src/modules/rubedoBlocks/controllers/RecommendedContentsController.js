@@ -32,7 +32,7 @@ angular.module("rubedoBlocks").lazy.controller("RecommendedContentsController",[
             var text = "";
             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-            for( var i=0; i < 5; i++ )
+            for( var i=0; i < 20; i++ )
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
             ipCookie("ruid",text,{path:"/",expires:8760, expirationUnit:"hours"});
             setTimeout(function(){window.location.reload();},300);
