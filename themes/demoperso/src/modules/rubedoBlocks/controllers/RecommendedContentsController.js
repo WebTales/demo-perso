@@ -85,6 +85,9 @@ angular.module("rubedoBlocks").lazy.controller("RecommendedContentsController",[
                 if(response.data.success){
                     me.query = response.data.results.query;
                     me.count = response.data.count;
+                    if(me.count==0){
+                        me.noResults=true;
+                    }
                     me.data =  response.data.results.data;
                     me.facets = response.data.results.facets;
                     me.notRemovableTerms = [];
