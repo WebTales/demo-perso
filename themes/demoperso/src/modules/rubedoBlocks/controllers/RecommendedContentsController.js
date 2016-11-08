@@ -35,7 +35,7 @@ angular.module("rubedoBlocks").lazy.controller("RecommendedContentsController",[
             for( var i=0; i < 20; i++ )
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
             ipCookie("ruid",text,{path:"/",expires:8760, expirationUnit:"hours"});
-            setTimeout(function(){window.location.reload();},300);
+            setTimeout(function(){window.location.reload();},1000);
         };
         var predefinedFacets = !config.predefinedFacets?{}:JSON.parse(config.predefinedFacets);
         var facetsId = ['objectType','type','damType','userType','author','userName','lastupdatetime','price','inStock','query'];
