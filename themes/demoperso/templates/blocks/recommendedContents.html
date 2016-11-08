@@ -1,7 +1,7 @@
 <div ng-controller="RecommendedContentsController as rccCtrl">
     <div class="bs-callout" ng-if="rccCtrl.data.length>0&&!blockConfig.useDetailContent">
         <h4>Here are your personalized recommendations, based on the releases you searched for on Music4U!</h4>
-        <!--<p><a href="#">Click here if you want to reset your recommendations</a>.</p>-->
+        <p><a class="cursor-as-pointer" ng-click="rccCtrl.refreshFingerprint()">Click here if you want to reset your recommendations</a>.</p>
     </div>
 
     <div class="bs-callout" ng-if="rccCtrl.query&&rccCtrl.data.length==0&&!blockConfig.useDetailContent">
