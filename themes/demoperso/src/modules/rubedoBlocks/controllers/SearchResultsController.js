@@ -225,7 +225,7 @@ angular.module("rubedoBlocks").lazy.controller("SearchResultsController",["$scop
                                 if(previousFacetId == activeFacet.id){
                                     newTerm.operator =' '+(activeFacet.operator)+' ';
                                 } else if (previousFacetId && me.notRemovableTerms.length != 0){
-                                    newTerm.operator = ', ';
+                                    newTerm.operator = ' ';
                                 }
                                 if(predefinedFacets.hasOwnProperty(activeFacet.id) && predefinedFacets[activeFacet.id]==term.term){
                                     me.notRemovableTerms.push(newTerm);
