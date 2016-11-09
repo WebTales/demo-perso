@@ -36,23 +36,25 @@ angular.module("rubedoBlocks").directive('persoContentLink',["RubedoContentsServ
                 pageId: scope.rubedo.current.page.id
             };
             var contentId=attrs.content;
-            RubedoPagesService.getPageById(attrs.page).then(function(response){
-                if (response.data.success){
-                    var destinationPage=response.data.url;
-                    if (contentId&&contentId!=""){
-                        RubedoContentsService.getContentById(contentId, options).then(
-                            function(response){
-                                if (response.data.success){
-                                    var cannonical=response.data.content.canonicalUrl;
-                                    var cutUrl=cannonical.substring(cannonical.indexOf(response.data.content.id));
-                                    attrs.$set("href",destinationPage+"/"+cutUrl+'?taxonomies={"artists":["'+response.data.content.id+'"]}');
-                                    element.html(response.data.content.fields.text);
+            if(contentId&&contentId!=""&&contentId!="None") {
+                RubedoPagesService.getPageById(attrs.page).then(function (response) {
+                    if (response.data.success) {
+                        var destinationPage = response.data.url;
+                        if (contentId && contentId != "") {
+                            RubedoContentsService.getContentById(contentId, options).then(
+                                function (response) {
+                                    if (response.data.success) {
+                                        var cannonical = response.data.content.canonicalUrl;
+                                        var cutUrl = cannonical.substring(cannonical.indexOf(response.data.content.id));
+                                        attrs.$set("href", destinationPage + "/" + cutUrl + '?taxonomies={"artists":["' + response.data.content.id + '"]}');
+                                        element.html(response.data.content.fields.text);
+                                    }
                                 }
-                            }
-                        );
+                            );
+                        }
                     }
-                }
-            });
+                });
+            }
 
 
 
