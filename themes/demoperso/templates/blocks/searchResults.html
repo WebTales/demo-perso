@@ -78,7 +78,7 @@
                 <a ng-href="{{datum.url}}">
                     <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{height:200}) }}" alt="">
                     <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{height:200}) }}" alt="">
-                    <img ng-if="!datum.image&&!datum.images[0]" src="/theme/demoperso/images/defaultImage.png">
+                    <img ng-if="!datum.image&&!datum.images[0]" src="/theme/demoperso/images/defaultImage.png" class="img-responsive" >
                     <h4>{{datum.title}}</h4>
                 </a>
                 <h5 ng-repeat="artist in datum.artists"><a perso-content-link page="{{blockConfig.authorPage}}" content="{{artist}}"></a></h5>
@@ -135,7 +135,7 @@
                 <a ng-href="{{datum.url}}">
                     <img ng-if="datum.images[0]" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.images[0],{height:200}) }}" alt="">
                     <img ng-if="datum.image" class="img-responsive" ng-src="{{rubedo.imageUrl.getUrlByMediaId(datum.image,{height:200}) }}" alt="">
-                    <img ng-if="!datum.image&&!datum.images[0]" src="/theme/demoperso/images/defaultImage.png">
+                    <img ng-if="!datum.image&&!datum.images[0]" src="/theme/demoperso/images/defaultImage.png" class="img-responsive" >
                     <h4>{{datum.title}}</h4>
                 </a>
             </div>
